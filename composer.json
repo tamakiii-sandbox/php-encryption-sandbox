@@ -1,4 +1,9 @@
 {
     "name": "tamakiii-sandbox/php-encryption-sandbox",
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-0": {
+            "": "src/"
+        }
+    }
 }

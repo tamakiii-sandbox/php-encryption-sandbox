@@ -6,3 +6,16 @@ composer.phar:
 
 vendor/:
 	php composer.phar install
+
+artifact/:
+	mkdir $@
+
+artifact/iv.txt: artifact/
+	php script/mcrypt_iv.php > $@
+
+test: artifact/iv.txt
+	@echo -n 'Plain Text' | php script/mcrypt_encrypt.php $^ | php script/mcrypt_decrypt.php $^
+	@echo
+
+clean:
+	rm -rf artifact/iv.txt
